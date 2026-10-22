@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanking av skole-PC via IPv4 – bruksanvisning for IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+  <header class="top">
+    <p class="top__org">IT-avdelingen</p>
+    <h1>Tanking av skole-PC via IPv4</h1>
+    <p class="top__sub">Bruksanvisning for ansatte</p>
+  </header>
+
+  <main class="layout">
+
+    
+    <nav class="rail" aria-label="Stegoversikt">
+      <ol class="rail__list" id="railList">
+        <li><a href="#intro" class="rail__link" data-target="intro"><span class="rail__node rail__node--intro"></span><span class="rail__text">Innledning</span></a></li>
+        <li><a href="#steg-1" class="rail__link" data-target="steg-1"><span class="rail__node">1</span><span class="rail__text">Steg 1</span></a></li>
+        <li><a href="#steg-2" class="rail__link" data-target="steg-2"><span class="rail__node">2</span><span class="rail__text">Steg 2</span></a></li>
+        <li><a href="#steg-3" class="rail__link" data-target="steg-3"><span class="rail__node">3</span><span class="rail__text">Steg 3</span></a></li>
+        <li><a href="#steg-4" class="rail__link" data-target="steg-4"><span class="rail__node">4</span><span class="rail__text">Steg 4</span></a></li>
+        <li><a href="#steg-5" class="rail__link" data-target="steg-5"><span class="rail__node">5</span><span class="rail__text">Steg 5</span></a></li>
+        <li><a href="#steg-6" class="rail__link" data-target="steg-6"><span class="rail__node">6</span><span class="rail__text">Steg 6</span></a></li>
+        <li><a href="#steg-7" class="rail__link" data-target="steg-7"><span class="rail__node">7</span><span class="rail__text">Steg 7</span></a></li>
+        <li><a href="#steg-8" class="rail__link" data-target="steg-8"><span class="rail__node">8</span><span class="rail__text">Steg 8</span></a></li>
+      </ol>
+      <p class="rail__count"><span id="doneCount">0</span> av 8 steg ferdig</p>
+    </nav>
+
+    <div class="content">
+
+      <!-- INNLEDNING -->
+      <section class="intro" id="intro">
+        <h2>Innledning</h2>
+        <p>Skriv innledningen din her. Forklar hva tanking av en PC er, hvorfor det gjøres, og hva som kreves før man starter (for eksempel nettverkstilgang og riktig bruker).</p>
+        <p>Du kan legge til flere avsnitt ved å kopiere <code>&lt;p&gt;…&lt;/p&gt;</code>.</p>
+
+        <div class="note note--info">
+          <strong>Før du begynner</strong>
+          <p>Skriv her hva ansatte må ha klart, for eksempel nettverkskabel, innlogging og tilgang til tankingsserveren.</p>
+        </div>
+      </section>
+
+      <!-- STEG -->
+      <ol class="steps">
+
+        <li class="step" id="steg-1">
+          <div class="step__head">
+            <span class="step__num">1</span>
+            <h3>Tittel på steg 1</h3>
+          </div>
+          <p>Skriv teksten til steg 1 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-1.png" alt="Bilde av steg 1" loading="lazy">
+            <figcaption>Bildetekst for steg 1</figcaption>
+          </figure>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+        <li class="step" id="steg-2">
+          <div class="step__head">
+            <span class="step__num">2</span>
+            <h3>Tittel på steg 2</h3>
+          </div>
+          <p>Skriv teksten til steg 2 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-2.png" alt="Bilde av steg 2" loading="lazy">
+            <figcaption>Bildetekst for steg 2</figcaption>
+          </figure>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+        <li class="step" id="steg-3">
+          <div class="step__head">
+            <span class="step__num">3</span>
+            <h3>Tittel på steg 3</h3>
+          </div>
+          <p>Skriv teksten til steg 3 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-3.png" alt="Bilde av steg 3" loading="lazy">
+            <figcaption>Bildetekst for steg 3</figcaption>
+          </figure>
+          <div class="note note--warn">
+            <strong>Viktig</strong>
+            <p>Eksempel på en advarsel. Slett denne boksen hvis du ikke trenger den.</p>
+          </div>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+        <li class="step" id="steg-4">
+          <div class="step__head">
+            <span class="step__num">4</span>
+            <h3>Tittel på steg 4</h3>
+          </div>
+          <p>Skriv teksten til steg 4 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-4.png" alt="Bilde av steg 4" loading="lazy">
+            <figcaption>Bildetekst for steg 4</figcaption>
+          </figure>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+        <li class="step" id="steg-5">
+          <div class="step__head">
+            <span class="step__num">5</span>
+            <h3>Tittel på steg 5</h3>
+          </div>
+          <p>Skriv teksten til steg 5 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-5.png" alt="Bilde av steg 5" loading="lazy">
+            <figcaption>Bildetekst for steg 5</figcaption>
+          </figure>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+        <li class="step" id="steg-6">
+          <div class="step__head">
+            <span class="step__num">6</span>
+            <h3>Tittel på steg 6</h3>
+          </div>
+          <p>Skriv teksten til steg 6 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-6.png" alt="Bilde av steg 6" loading="lazy">
+            <figcaption>Bildetekst for steg 6</figcaption>
+          </figure>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+        <li class="step" id="steg-7">
+          <div class="step__head">
+            <span class="step__num">7</span>
+            <h3>Tittel på steg 7</h3>
+          </div>
+          <p>Skriv teksten til steg 7 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-7.png" alt="Bilde av steg 7" loading="lazy">
+            <figcaption>Bildetekst for steg 7</figcaption>
+          </figure>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+        <li class="step" id="steg-8">
+          <div class="step__head">
+            <span class="step__num">8</span>
+            <h3>Tittel på steg 8</h3>
+          </div>
+          <p>Skriv teksten til steg 8 her.</p>
+          <figure class="shot">
+            <img src="bilder/steg-8.png" alt="Bilde av steg 8" loading="lazy">
+            <figcaption>Bildetekst for steg 8</figcaption>
+          </figure>
+          <label class="done"><input type="checkbox" class="done__box"><span>Ferdig med dette steget</span></label>
+        </li>
+
+      </ol>
+
+      <section class="finish" id="finish" hidden>
+        <h2>Tankingen er ferdig</h2>
+        <p>Alle 8 stegene er krysset av. PC-en er klar til bruk.</p>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="btn" id="resetBtn">Start på nytt</button>
+        <button type="button" class="btn btn--ghost" id="printBtn">Skriv ut</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p>Bruksanvisning laget av IT-avdelingen. Skoleprosjekt.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

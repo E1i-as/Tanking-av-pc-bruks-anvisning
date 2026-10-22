@@ -1,0 +1,394 @@
+/* ---------- Farger og skrift ---------- */
+:root {
+    --paper: #eef1f4;
+    --card: #ffffff;
+    --ink: #16212c;
+    --muted: #566574;
+    --line: #c9d2db;
+    --signal: #1d5fc4;        /* nettverksblå */
+    --signal-soft: #e3edfb;
+    --done: #23785a;
+    --done-soft: #def3ea;
+    --warn: #9a5a0c;
+    --warn-soft: #fbefd9;
+  
+    --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+    --font-head: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  }
+  
+  * { box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+  
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  
+  h1, h2, h3 {
+    font-family: var(--font-head);
+    line-height: 1.15;
+    margin: 0;
+  }
+  
+  p { margin: 0 0 1rem; max-width: 68ch; }
+  
+  code {
+    background: var(--signal-soft);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.92em;
+  }
+  
+  :focus-visible {
+    outline: 3px solid var(--signal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  
+  /* ---------- Fremdriftslinje øverst ---------- */
+  .progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: var(--line);
+    z-index: 50;
+  }
+  .progress__bar {
+    height: 100%;
+    width: 0;
+    background: var(--done);
+    transition: width 0.4s ease;
+  }
+  
+  /* ---------- Topp ---------- */
+  .top {
+    background: var(--ink);
+    color: #fff;
+    padding: 3.5rem 1.5rem 3rem;
+    text-align: left;
+  }
+  .top > * { max-width: 1060px; margin-left: auto; margin-right: auto; }
+  .top__org { color: #9fc0f3; margin-bottom: 0.5rem; }
+  .top h1 {
+    font-size: clamp(2rem, 5.5vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 18ch;
+  }
+  .top__sub { margin: 1rem auto 0; color: #c8d2dd; }
+  
+  /* ---------- Oppsett ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 3rem;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+  
+  /* ---------- Sidemeny som kabel ---------- */
+  .rail {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+  }
+  .rail__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  /* selve kabelen */
+  .rail__list::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    bottom: 14px;
+    width: 3px;
+    background: var(--line);
+    border-radius: 2px;
+  }
+  .rail__link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.3rem 0;
+    color: var(--muted);
+    text-decoration: none;
+    position: relative;
+  }
+  .rail__link:hover .rail__text { color: var(--ink); }
+  
+  .rail__node {
+    flex: none;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 3px solid var(--line);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+  }
+  .rail__node--intro { border-radius: 8px; }
+  
+  .rail__link.is-current .rail__node {
+    border-color: var(--signal);
+    color: var(--signal);
+    background: var(--signal-soft);
+  }
+  .rail__link.is-current .rail__text { color: var(--ink); font-weight: 700; }
+  
+  .rail__link.is-done .rail__node {
+    background: var(--done);
+    border-color: var(--done);
+    color: #fff;
+  }
+  .rail__link.is-done .rail__node::after { content: "✓"; }
+  .rail__link.is-done .rail__node { font-size: 0; }
+  .rail__link.is-done .rail__node::after { font-size: 1rem; }
+  
+  .rail__count {
+    margin: 1.25rem 0 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  
+  /* ---------- Innledning ---------- */
+  .intro { margin-bottom: 3rem; }
+  .intro h2 { font-size: 2rem; margin-bottom: 1rem; }
+  
+  /* ---------- Infobokser ---------- */
+  .note {
+    border-left: 5px solid var(--signal);
+    background: var(--signal-soft);
+    padding: 0.9rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0;
+    max-width: 68ch;
+  }
+  .note p { margin: 0.25rem 0 0; }
+  .note--warn { border-color: var(--warn); background: var(--warn-soft); }
+  
+  /* ---------- Steg ---------- */
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+  }
+  .step {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem 1.25rem;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .step__head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .step__head h3 { font-size: 1.45rem; }
+  .step__num {
+    flex: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-head);
+    font-weight: 800;
+  }
+  
+  .step.is-done {
+    border-color: var(--done);
+    background: #f7fcf9;
+  }
+  .step.is-done .step__num { background: var(--done); }
+  
+  /* ---------- Avkrysning ---------- */
+  .done {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    padding: 0.35rem 0;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .done__box {
+    width: 1.3rem;
+    height: 1.3rem;
+    accent-color: var(--done);
+    cursor: pointer;
+  }
+  
+  /* ---------- Ferdig-boks ---------- */
+  .finish {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--done-soft);
+    border: 2px solid var(--done);
+    border-radius: 10px;
+  }
+  .finish h2 { font-size: 1.6rem; color: var(--done); margin-bottom: 0.4rem; }
+  .finish p { margin: 0; }
+  
+  /* ---------- Knapper ---------- */
+  .actions { display: flex; gap: 0.75rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .btn {
+    font: inherit;
+    font-weight: 700;
+    padding: 0.7rem 1.3rem;
+    border-radius: 8px;
+    border: 2px solid var(--signal);
+    background: var(--signal);
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.1); }
+  .btn--ghost { background: transparent; color: var(--signal); }
+  .btn--ghost:hover { background: var(--signal-soft); filter: none; }
+  
+  /* ---------- Bunn ---------- */
+  .foot {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+  .foot p { margin: 0 auto; }
+  
+  /* ---------- Mobil ---------- */
+  @media (max-width: 800px) {
+    .layout { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2rem; }
+  
+    .rail {
+      position: sticky;
+      top: 5px;
+      z-index: 40;
+      background: var(--paper);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .rail__list {
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+    }
+    .rail__list::before { display: none; }
+    .rail__text { display: none; }
+    .rail__count { margin-top: 0.4rem; }
+    .step { padding: 1.25rem; }
+  }
+  
+  /* ---------- Respekter redusert bevegelse ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+  
+  /* ---------- Utskrift ---------- */
+  @media print {
+    body { background: #fff; font-size: 11pt; }
+    .progress, .rail, .actions, .top__sub { display: none; }
+    .top { background: none; color: #000; padding: 0 0 1rem; }
+    .top__org { color: #000; }
+    .layout { display: block; padding: 0; }
+    .step { break-inside: avoid; border-color: #999; }
+    .done { display: none; }
+  }
+  
+  /* ---------- Bilder i stegene ---------- */
+  .shot {
+    margin: 1.25rem 0;
+    padding: 0;
+  }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    cursor: zoom-in;
+  }
+  .shot figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  /* Vises hvis bildefilen ikke finnes */
+  .shot.is-missing img { display: none; }
+  .shot.is-missing::before {
+    content: "Mangler bilde: " attr(data-path);
+    display: grid;
+    place-items: center;
+    min-height: 200px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--muted);
+    border: 2px dashed var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+  }
+  
+  /* ---------- Forstørret bilde ---------- */
+  .lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: 96vw;
+    max-height: 96vh;
+    overflow: visible;
+  }
+  .lightbox::backdrop { background: rgba(10, 18, 26, 0.85); }
+  .lightbox img {
+    display: block;
+    max-width: 96vw;
+    max-height: 86vh;
+    margin: 0 auto;
+    border-radius: 8px;
+    background: #fff;
+  }
+  .lightbox p {
+    margin: 0.6rem auto 0;
+    color: #fff;
+    text-align: center;
+    max-width: 80ch;
+  }
+  .lightbox__close {
+    position: absolute;
+    top: -2.6rem;
+    right: 0;
+    font: inherit;
+    font-weight: 700;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 0.3rem 0.9rem;
+    cursor: pointer;
+  }
+  .lightbox__close:hover { background: rgba(255, 255, 255, 0.15); }
+  
+  @media print {
+    .shot { break-inside: avoid; }
+    .shot img { cursor: default; }
+  }
